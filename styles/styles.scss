@@ -1,0 +1,78 @@
+// VARIABLES
+$main-color : #ff9494;
+$darker-main : #ff5e5e;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+
+    a {
+        text-decoration: none;
+        color: $main-color;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    padding: 0 50px;
+    white-space: nowrap;
+
+    .logo {
+        color: $main-color;
+
+        .logo-text {
+            transition: 0.3s;
+
+            &:hover {
+                color: black;
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        font-weight: bold;
+
+        li {
+            margin: 0 30px;
+
+            a {
+                color: black;
+                transition: 0.2s;
+                opacity: 0.75;
+
+                &:hover {
+                    color: $main-color;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    height: 350px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+
+
+
+// NAVBAR CURRENT PAGE SELECTION - only applies when class name is inside id
+#home .home, #journal .journal, #to-do .to-do, #look-back .look-back {
+    color: $main-color;
+    opacity: 1;
+}

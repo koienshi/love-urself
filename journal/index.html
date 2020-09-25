@@ -9,8 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/styles.css">
     <link rel="stylesheet" type="text/css" href="/styles/media.css">
     <!-- font family: nunito -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     
@@ -30,10 +29,74 @@
 </head>
 <body id="journal">
     <div id="header"></div>
+    
+    <section class="main">
+
+        <form autocomplete="off" class="new-note">
+            <div>
+                <label for="title">Title:</label>
+            </div>
+            <input type="text" id="title" placeholder="title...">
+            <div>
+                <textarea id="body" name="body" placeholder="type here..." required></textarea>
+            </div>
+            <div>
+                <button>Add</button>
+            </div>
+        </form>
+    
+        <section class="entry-display"  data-masonry='{ "itemSelector": ".entry", "columnWidth": 420 }'>
+            <div class="entry">
+                <h2>This is a note</h2>
+                <h4>date: 1</h4>
+                <p>this is an entryyyyyy
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, harum quidem? Dolores, praesentium? Error voluptatem qui delectus ducimus. Blanditiis, voluptatem.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt fugiat voluptate doloremque est temporibus, iusto accusamus quae sequi excepturi dolorem odio non quia dolor reiciendis consequuntur corporis aspernatur ipsum mollitia.
+                </p>
+            </div>
+            <div class="entry">
+                <h2>This is a note</h2>
+                <h4>date: 2</h4>
+                <p>this is an entryyyyyy
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, harum quidem? Dolores, praesentium? Error voluptatem qui delectus ducimus. Blanditiis, voluptatem.
+                </p>
+            </div>
+            <div class="entry">
+                <h2>This is a note</h2>
+                <h4>date: 3</h4>
+                <p>this is an entryyyyyy
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, harum quidem? Dolores, praesentium? Error voluptatem qui delectus ducimus. Blanditiis, voluptatem.
+                </p>
+            </div>
+            <div class="entry">
+                <h2>This is a note</h2>
+                <h4>date: 4</h4>
+                <p>this is an entryyyyyy
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, harum quidem? Dolores, praesentium? Error voluptatem qui delectus ducimus. Blanditiis, voluptatem.
+                </p>
+            </div>
+            <div class="entry">
+                <h2>This is a note</h2>
+                <h4>date: 5</h4>
+                <p>this is an entryyyyyy
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, harum quidem? Dolores, praesentium? Error voluptatem qui delectus ducimus. Blanditiis, voluptatem.
+                </p>
+            </div>
+            <div class="entry">
+                <h2>This is a note</h2>
+                <h4>date: 6</h4>
+                <p>this is an entryyyyyy
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, harum quidem? Dolores, praesentium? Error voluptatem qui delectus ducimus. Blanditiis, voluptatem.
+                </p>
+            </div>
+        </section>
+    </section>
 
     <div id="footer"></div>
 
     <!-- Scripts -->
     <script type="text/javascript" src="/scripts/main.js"></script>
+    <!-- masonry -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 </body>
 </html>

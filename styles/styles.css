@@ -135,10 +135,13 @@ header ul li a:hover {
 }
 
 .entry-display {
-  overflow-y: hidden;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .entry-display .entry {
+  position: relative;
   max-width: 100%;
   width: 400px;
   background-color: #f5f5f5;

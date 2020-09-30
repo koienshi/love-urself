@@ -152,8 +152,10 @@ header {
 
 
 .entry-display {
-    overflow-y: hidden;
+    height: max-content;
+
     .entry {
+        position: relative;
         max-width: 100%;
         width: 400px;
         background-color: #f5f5f5;

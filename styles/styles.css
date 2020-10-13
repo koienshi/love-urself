@@ -18,6 +18,7 @@
 * ::-webkit-scrollbar {
   width: 10px;
   margin: 2px;
+  z-index: 10000;
 }
 
 * ::-webkit-scrollbar-track {
@@ -57,6 +58,41 @@ button:hover {
   background-color: #c5c5c5;
 }
 
+form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+textarea {
+  width: 30%;
+  max-width: 100%;
+  min-width: 300px;
+  max-height: 100%;
+  border-radius: 5px;
+  border: 1px solid #f0f0f0;
+  outline: none;
+  padding: 5px;
+  margin: 10px;
+  -webkit-transition: border 0.3s;
+  transition: border 0.3s;
+}
+
+textarea:focus {
+  border: 1px solid #ff9494;
+}
+
 .welcome {
   width: 100vw;
   height: 100vh;
@@ -65,6 +101,20 @@ button:hover {
   top: 0;
   z-index: 10;
   display: none;
+}
+
+.box {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.box h3 {
+  margin-bottom: 20px;
 }
 
 header {
@@ -128,7 +178,7 @@ header ul li a:hover {
   width: 100%;
   max-width: 1400px;
   min-height: calc(100vh - 100px - 300px);
-  margin: 150px auto;
+  margin: 120px auto;
   padding: 0 50px;
   font-size: 17px;
   line-height: 1.8rem;

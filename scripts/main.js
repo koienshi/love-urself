@@ -111,12 +111,17 @@ window.onload = function() {
                 const para = document.createElement('p');
 
                 // get current date
-                var today = new Date();
+                var today = new Date(Date.now());
                 var dd = String(today.getDate()).padStart(2, '0');
                 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
                 var yyyy = today.getFullYear();
                 const h4 = document.createElement('h4');
-                h4.textContent = "Date: " + mm + "/" + dd + "/" + yyyy;
+
+                var hr = today.getHours();
+                var mn = today.getMinutes();
+
+                h4.textContent = "Date: " + mm + "/" + dd + "/" + yyyy + " @ " +
+                    ('0' + hr).slice(-2) + ':' + ('0' + mn).slice(-2);
 
                 entry.appendChild(h2);
                 entry.appendChild(h4);
@@ -134,6 +139,7 @@ window.onload = function() {
                 // Create a button and place it inside each entry
                 const deleteBtn = document.createElement('button');
                 entry.appendChild(deleteBtn);
+                //deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
                 deleteBtn.textContent = 'Delete';
         
                 // Set an event handler so that when the button is clicked, the deleteItem()
@@ -178,7 +184,7 @@ window.onload = function() {
             // Again, if list item is empty, display a 'No notes stored' message
             if(!list.firstChild) {
                 let entry = document.createElement('li');
-                entry.textContent = 'No notes stored.';
+                entry.textContent = 'No entries stored.';
                 list.appendChild(entry);
             }
         };

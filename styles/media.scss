@@ -1,0 +1,18 @@
+// VARIABLES
+$main-color : #ff9494;
+$darker-main : #ff5e5e;
+$dark-gray : #333333;
+$light-gray : #f0f0f0;
+
+@mixin centerText {
+    display: block;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin center {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>love urself</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/calendar.css">
+    <link rel="stylesheet" type="text/css" href="/styles/media.css">
+    <!-- font family: nunito -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+    </script>
+    <!-- load header into div with id="header" -->
+    <script>
+        $(function () {
+            $("#header").load("/repeats/header.html");
+            $("#footer").load("/repeats/footer.html");
+        });
+    </script>
+
+    <script>
+        // fill the month table with column headings
+        function day_title(day_name) {
+            document.write("<div class='c-cal__col'>" + day_name + "</div>");
+        }
+        // fills the month table with numbers
+        function fill_table(month, month_length, indexMonth) {
+            day = 1;
+            // begin the new month table
+            document.write("<div class='c-main c-main-" + indexMonth + "'>");
+            //document.write("<b>"+month+" "+year+"</b>")
+
+            // column headings
+            document.write("<div class='c-cal__row'>");
+            day_title("Sun");
+            day_title("Mon");
+            day_title("Tue");
+            day_title("Wed");
+            day_title("Thu");
+            day_title("Fri");
+            day_title("Sat");
+            document.write("</div>");
+
+            // pad cells before first day of month
+            document.write("<div class='c-cal__row'>");
+            for (var i = 1; i < start_day; i++) {
+                if (start_day > 7) {} else {
+                    document.write("<div class='c-cal__cel'></div>");
+                }
+            }
+
+            // fill the first week of days
+            for (var i = start_day; i < 8; i++) {
+                document.write(
+                    "<div data-day='2017-" +
+                    indexMonth +
+                    "-0" +
+                    day +
+                    "'class='c-cal__cel'><p>" +
+                    day +
+                    "</p></div>"
+                );
+                day++;
+            }
+            document.write("</div>");
+
+            // fill the remaining weeks
+            while (day <= month_length) {
+                document.write("<div class='c-cal__row'>");
+                for (var i = 1; i <= 7 && day <= month_length; i++) {
+                    if (day >= 1 && day <= 9) {
+                        document.write(
+                            "<div data-day='2017-" +
+                            indexMonth +
+                            "-0" +
+                            day +
+                            "'class='c-cal__cel'><p>" +
+                            day +
+                            "</p></div>"
+                        );
+                        day++;
+                    } else {
+                        document.write(
+                            "<div data-day='2017-" +
+                            indexMonth +
+                            "-" +
+                            day +
+                            "' class='c-cal__cel'><p>" +
+                            day +
+                            "</p></div>"
+                        );
+                        day++;
+                    }
+                }
+                document.write("</div>");
+                // the first day of the next month
+                start_day = i;
+            }
+
+            document.write("</div>");
+        }
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <header>
+        <div class="wrapper">
+            <div class="c-monthyear">
+                <div class="c-month">
+                    <span id="prev" class="prev fa fa-angle-left" aria-hidden="true"></span>
+                    <div id="c-paginator">
+                        <span class="c-paginator__month">JANUARY</span>
+                        <span class="c-paginator__month">FEBRUARY</span>
+                        <span class="c-paginator__month">MARCH</span>
+                        <span class="c-paginator__month">APRIL</span>
+                        <span class="c-paginator__month">MAY</span>
+                        <span class="c-paginator__month">JUNE</span>
+                        <span class="c-paginator__month">JULY</span>
+                        <span class="c-paginator__month">AUGUST</span>
+                        <span class="c-paginator__month">SEPTEMBER</span>
+                        <span class="c-paginator__month">OCTOBER</span>
+                        <span class="c-paginator__month">NOVEMBER</span>
+                        <span class="c-paginator__month">DECEMBER</span>
+                    </div>
+                    <span id="next" class="next fa fa-angle-right" aria-hidden="true"></span>
+                </div>
+                <span class="c-paginator__year">2017</span>
+            </div>
+            <div class="c-sort">
+                <a class="o-btn c-today__btn" href="javascript:;">TODAY</a>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="c-calendar">
+            <div class="c-calendar__style c-aside">
+                <a class="c-add o-btn js-event__add" href="javascript:;">add event <span class="fa fa-plus"></span></a>
+                <div class="c-aside__day">
+                    <span class="c-aside__num"></span> <span class="c-aside__month"></span>
+                </div>
+                <div class="c-aside__eventList">
+                </div>
+            </div>
+            <div class="c-cal__container c-calendar__style">
+                <script>
+                    // CAHNGE the below variable to the CURRENT YEAR
+                    year = 2017;
+
+                    // first day of the week of the new year
+                    today = new Date("January 1, " + year);
+                    start_day = today.getDay() + 1;
+                    fill_table("January", 31, "01");
+                    fill_table("February", 28, "02");
+                    fill_table("March", 31, "03");
+                    fill_table("April", 30, "04");
+                    fill_table("May", 31, "05");
+                    fill_table("June", 30, "06");
+                    fill_table("July", 31, "07");
+                    fill_table("August", 31, "08");
+                    fill_table("September", 30, "09");
+                    fill_table("October", 31, "10");
+                    fill_table("November", 30, "11");
+                    fill_table("December", 31, "12");
+                </script>
+            </div>
+        </div>
+
+        <div class="c-event__creator c-calendar__style js-event__creator">
+            <a href="javascript:;" class="o-btn js-event__close">CLOSE <span class="fa fa-close"></span></a>
+            <form id="addEvent">
+                <input placeholder="Event name" type="text" name="name">
+                <input type="date" name="date">
+                <textarea placeholder="Notes" name="notes" cols="30" rows="10"></textarea>
+                <select name="tags">
+                    <option value="event">event</option>
+                    <option value="important">important</option>
+                    <option value="birthday">birthday</option>
+                    <option value="festivity">festivity</option>
+                </select>
+            </form>
+            <br>
+            <a href="javascript:;" class="o-btn js-event__save">SAVE <span class="fa fa-save"></span></a>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script type="text/javascript" src="/scripts/calendar.js"></script>
+</body>
+
+</html>
